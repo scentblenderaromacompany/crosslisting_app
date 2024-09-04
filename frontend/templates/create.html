@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Jewelry Listing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/create">Create Jewelry Listing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Create a New Jewelry Listing</h2>
+        <form action="/create" method="post" enctype="multipart/form-data">
+            <!-- Title Field -->
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Enter product title" required>
+
+            <!-- Description Field -->
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Enter product description" required></textarea>
+
+            <!-- Price Field -->
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" placeholder="Enter price" required>
+
+            <!-- Jewelry Item Specifics -->
+
+            <!-- Brand -->
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" name="brand" placeholder="Enter the brand">
+
+            <!-- Metal -->
+            <label for="metal">Metal:</label>
+            <input type="text" id="metal" name="metal" placeholder="e.g. Gold, Silver, Platinum" required>
+
+            <!-- Metal Purity -->
+            <label for="metal_purity">Metal Purity:</label>
+            <input type="text" id="metal_purity" name="metal_purity" placeholder="e.g. 14k, 18k, .925, .999">
+
+            <!-- Gemstone Type -->
+            <label for="gemstone_type">Gemstone Type:</label>
+            <input type="text" id="gemstone_type" name="gemstone_type" placeholder="e.g. Diamond, Sapphire">
+
+            <!-- Total Carat Weight -->
+            <label for="total_carat_weight">Total Carat Weight:</label>
+            <input type="text" id="total_carat_weight" name="total_carat_weight" placeholder="Enter the total carat weight">
+
+            <!-- Gemstone Clarity -->
+            <label for="gemstone_clarity">Gemstone Clarity:</label>
+            <input type="text" id="gemstone_clarity" name="gemstone_clarity" placeholder="e.g. VVS1, VS2, SI1">
+
+            <!-- Gemstone Color -->
+            <label for="gemstone_color">Gemstone Color:</label>
+            <input type="text" id="gemstone_color" name="gemstone_color" placeholder="e.g. D, E, F, G">
+
+            <!-- Ring Size (for rings) -->
+            <label for="ring_size">Ring Size:</label>
+            <input type="text" id="ring_size" name="ring_size" placeholder="Enter the ring size (if applicable)">
+
+            <!-- Style -->
+            <label for="style">Style:</label>
+            <input type="text" id="style" name="style" placeholder="e.g. Solitaire, Halo, Vintage">
+
+            <!-- Length (for necklaces, bracelets) -->
+            <label for="length">Length:</label>
+            <input type="text" id="length" name="length" placeholder="Enter the length (if applicable)">
+
+            <!-- Condition -->
+            <label for="condition">Condition:</label>
+            <select id="condition" name="condition" required>
+                <option value="New with tags">New with tags</option>
+                <option value="New without tags">New without tags</option>
+                <option value="Pre-owned">Pre-owned</option>
+            </select>
+
+            <!-- Image Upload Field -->
+            <label for="images">Upload Images:</label>
+            <input type="file" id="images" name="images" multiple accept="image/*" required>
+
+            <!-- Marketplace Field (Select multiple marketplaces) -->
+            <label for="marketplace">Choose Marketplaces:</label>
+            <select id="marketplace" name="marketplace" multiple required>
+               
+
+
+                <option value="ebay">eBay</option>
+                <option value="etsy">Etsy</option>
+                <option value="facebook">Facebook Marketplace</option>
+                <option value="offerup">OfferUp</option>
+            </select>
+
+            <!-- Submit Button -->
+            <button type="submit">Create Listing</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Cross-Listing App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
