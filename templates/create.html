@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Listing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function validateForm() {
+            const price = document.getElementById('price').value;
+            if (price <= 0) {
+                alert('Price must be a positive number.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/create">Create Listing</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Create a New Listing</h2>
+        <form action="/create" method="post" onsubmit="return validateForm();">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" required>
+
+            <label for="image_url">Image URL:</label>
+            <input type="text" id="image_url" name="image_url" required>
+
+            <label for="marketplace">Marketplace:</label>
+            <select id="marketplace" name="marketplace" multiple required>
+                <option value="ebay">eBay</option>
+                <option value="etsy">Etsy</option>
+                <option value="facebook">Facebook Marketplace</option>
+                <option value="offerup">OfferUp</option>
+            </select>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+
+            <label for="condition">Condition:</label>
+            <input type="text" id="condition" name="condition" required>
+
+            <button type="submit">Create Listing</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Cross-Listing App. All rights reserved.</p>
+    </footer>
+</body>
+</html>

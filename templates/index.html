@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/create">Create Listing</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>All Listings</h1>
+        <ul class="listing-list">
+        {% for listing in listings %}
+            <li>
+                <h2>{{ listing.title }}</h2>
+                <p>{{ listing.description }}</p>
+                <p>Price: ${{ listing.price }}</p>
+                <p>Marketplaces: {{ listing.marketplace }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Cross-Listing App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
