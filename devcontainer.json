@@ -1,0 +1,32 @@
+{
+  "name": "xListing Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.9"
+    },
+    "ghcr.io/devcontainers/features/postgresql:1": {
+      "version": "13",
+      "password": "80408040"  
+    }
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "postCreateCommand": "npm install && pip install -r requirements.txt",
+  "forwardPorts": [3000, 5432],
+  "remoteEnv": {
+    "DATABASE_URL": "postgresql://postgres:80408040@localhost:5432/xlisting_db"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-vscode.vscode-node-essentials",
+    "esbenp.prettier-vscode",
+    "ms-azuretools.vscode-docker",
+    "redhat.vscode-yaml",
+    "dbaeumer.vscode-eslint"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder}/.env,target=/workspace/.env,type=bind"
+  ]
+}
